@@ -4,14 +4,14 @@ from node import IBFTNode
 from messages import IBFTMessage, MessageType
 
 class IBFTProtocol:
-    def __init__(self, node_id: int, total_nodas: int):
+    def __init__(self, node_id: int, total_nodes: int):
         self.node = IBFTNode(node_id, total_nodes)
         self.consensus = IBFTConsensus(self.node)
         self.view_change = IBFTViewChange(self.node)
         
     def start_consensus(self, value):
         # Pokretanje algoritma 1
-        self.lambdaa += 1
+        self.node.lambdaa += 1
         
         if self.consensus.is_primary():
             # Primarni cvor predstavlja vrednost
